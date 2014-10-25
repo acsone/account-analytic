@@ -56,23 +56,9 @@ class account_account_type(orm.Model):
         'analytic_policy': 'optional',
         }
 
+
 class account_move_line(orm.Model):
     _inherit = "account.move.line"
-
-    def create(self, cr, uid, vals, context=None, check=True):
-        line_id = super(account_move_line, self).create(
-            cr, uid, vals, context=context, check=check)
-        self.check_analytic_required(cr, uid, line_id, vals, context=context)
-        return line_id
-
-    def write(
-            self, cr, uid, ids, vals, context=None, check=True,
-            update_check=True):
-        res = super(account_move_line, self).write(
-            cr, uid, ids, vals, context=context, check=check,
-            update_check=update_check)
-        self.check_analytic_required(cr, uid, ids, vals, context=context)
-        return res
 
     def _get_analytic_policy(self, cr, uid, account, context=None):
         """ Extension point to obtain analytic policy for an account """
