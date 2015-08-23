@@ -23,28 +23,17 @@
 
 {
     'name': 'Account Analytic Required',
-    'version': '0.2',
+    'version': '0.4',
     'category': 'Analytic Accounting',
     'license': 'AGPL-3',
-    'description': """
-Account Analytic Required
-=========================
-
-This module adds an option *analytic policy* on account types.
-You have the choice between 3 policies : *always*, *never* and *optional*.
-
-For example, if you want to have an analytic account on all your expenses,
-set the policy to *always* for the account type *expense* ; then, if you
-try to save an account move line with an account of type *expense*
-without analytic account, you will get an error message.
-
-Module developped by Alexis de Lattre <alexis.delattre@akretion.com>
-during the Akretion-Camptocamp code sprint of June 2011.
-""",
-    'author': "Akretion,Odoo Community Association (OCA)",
-    'website': 'http://www.akretion.com/',
+    'summary': 'Account Analytic Required',
+    'author': "Akretion,"
+              "Odoo Community Association (OCA)",
     'depends': ['account'],
-    'data': ['account_view.xml'],
-    'installable': True,
-    'auto_install': False,
+    'data': [
+        'account_view.xml',
+        'account_invoice_view.xml',
+        'account_move_view.xml',
+        'views/account.xml',
+        ],
 }

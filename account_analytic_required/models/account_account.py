@@ -2,8 +2,9 @@
 ##############################################################################
 #
 #    Account analytic required module for OpenERP
-#    Copyright (C) 2011 Akretion (http://www.akretion.com). All Rights Reserved
+#    Copyright (C) 2011 Akretion (http://www.akretion.com)
 #    @author Alexis de Lattre <alexis.delattre@akretion.com>
+#    Developped during the Akretion-Camptocamp code sprint of June 2011
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -20,5 +21,12 @@
 #
 ##############################################################################
 
-from . import account
-from . import account_invoice
+from openerp import models, fields
+
+
+class AccountAccount(models.Model):
+    _inherit = "account.account"
+
+    analytic_policy = fields.Selection(
+        string='Policy for analytic account',
+        related='user_type.analytic_policy', readonly=True)
