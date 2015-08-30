@@ -23,7 +23,7 @@
 
 {
     'name': 'Account Analytic Required',
-    'version': '0.4',
+    'version': '0.5',
     'category': 'Analytic Accounting',
     'license': 'AGPL-3',
     'summary': 'Account Analytic Required',
@@ -31,9 +31,10 @@
               "Odoo Community Association (OCA)",
     'depends': ['account'],
     'data': [
-        'account_view.xml',
-        'account_invoice_view.xml',
-        'account_move_view.xml',
-        'views/account.xml',
+        'views/account_account_type.xml',
+        'views/account_invoice.xml',
+        'views/account_move.xml',
+        'views/account_template.xml',
         ],
+    'installable': True,
 }
