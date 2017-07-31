@@ -35,6 +35,7 @@ msgid "Project"
 msgstr "项目"
 
 #. module: account_analytic_project
+#: field:account.analytic.account,project_ids:0
 #: code:addons/account_analytic_project/model/account_analytic_account.py:40
 #, python-format
 msgid "Projects"
