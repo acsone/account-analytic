@@ -11,7 +11,9 @@ class TestMrpAnalytic(common.TransactionCase):
         super(TestMrpAnalytic, self).setUp()
         self.analytic_account = self.env['account.analytic.account'].create(
             {'name': 'Analytic account test'})
-        self.product = self.env['product.product'].create({'name': 'Test'})
+        self.product = self.env['product.product'].create({
+            'name': 'Test product',
+        })
         self.bom = self.env['mrp.bom'].create(
             {
                 'product_id': self.product.id,
@@ -21,7 +23,8 @@ class TestMrpAnalytic(common.TransactionCase):
             {
                 'product_id': self.product.id,
                 'analytic_account_id': self.analytic_account.id,
-                'product_uom': self.product.uom_id.id,
+                'product_uom_id': self.product.uom_id.id,
+                'bom_id': self.bom.id,
             })
 
     def test_num_productions(self):

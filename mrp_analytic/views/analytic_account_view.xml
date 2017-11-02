@@ -7,7 +7,7 @@
             <field name="model">account.analytic.account</field>
             <field name="inherit_id" ref="analytic.view_account_analytic_account_form"/>
             <field name="arch" type="xml">
-                <xpath expr='//div[@name="buttons"]' position='inside'>
+                <xpath expr='//div[@name="button_box"]' position='inside'>
                     <button name="%(mrp.mrp_production_action)d"
                             icon="fa-list-alt"
                             class="oe_inline oe_stat_button"
