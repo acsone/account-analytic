@@ -7,6 +7,7 @@ from odoo import fields, models
 
 class AccountAnalyticAccountDistribution(models.Model):
     _name = "account.analytic.account.distribution_line"
+    _description = "Account Analytic Account Distribution"
 
     distribution_analytic_id = fields.Many2one(
         'account.analytic.account',

@@ -18,27 +18,22 @@
 #
 ##############################################################################
 {
-    'name': 'Account Analytic Distribution',
-    'version': '12.0.1.0.0',
-    'category': 'Accounting',
-    'sequence': 14,
-    'summary': '',
-    'author': 'ADHOC SA',
-    'website': 'www.adhoc.com.ar',
-    'license': 'AGPL-3',
-    'images': [
+    "name": "Account Analytic Distribution",
+    "version": "12.0.1.0.0",
+    "category": "Accounting",
+    "sequence": 14,
+    "summary": "",
+    "author": "ADHOC SA",
+    "website": "www.adhoc.com.ar",
+    "license": "AGPL-3",
+    "images": [],
+    "depends": ["account", "sales_team"],
+    "data": [
+        "views/account_analytic_account_views.xml",
+        "security/ir.model.access.csv",
     ],
-    'depends': [
-        'account',
-        'sales_team',
-    ],
-    'data': [
-        'views/account_analytic_account_views.xml',
-        'security/ir.model.access.csv',
-    ],
-    'demo': [
-    ],
-    'installable': False,
-    'auto_install': False,
-    'application': False,
+    "demo": [],
+    "installable": True,
+    "auto_install": False,
+    "application": False,
 }
