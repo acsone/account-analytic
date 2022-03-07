@@ -28,7 +28,9 @@ class StockPicking(models.Model):
         store=True,
     )
 
-    @api.depends("move_ids_without_package.analytic_account_id")
+    @api.depends(
+        "move_ids_without_package.analytic_account_id", "original_analytic_account_id"
+    )
     def _compute_analytic_account_id(self):
         """
         Get analytic account from first move and put it on picking

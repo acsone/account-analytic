@@ -69,3 +69,45 @@ class TestStockAnalytic(SavepointCase):
             picking.analytic_account_id,
             self.analytic_account,
         )
+
+    def test_compute_no_move(self):
+        """
+        Set analytic account on void picking
+        """
+        picking = self.picking
+        picking.move_ids_without_package = False
+        self.picking.analytic_account_id = self.analytic_account
+        self.assertEqual(picking.analytic_account_id, self.analytic_account)
+        self.assertEqual(picking.original_analytic_account_id, self.analytic_account)
+
+    def test_compute_different_analytic_account_id(self):
+        """
+        Add a move with another analytic account
+        Check if no analytic account is set
+        """
+        picking = self.picking
+        picking.move_ids_without_package.write(
+            {
+                "analytic_account_id": self.analytic_account.id,
+            }
+        )
+        self.picking.write(
+            {
+                "move_ids_without_package": [
+                    (
+                        0,
+                        0,
+                        {
+                            "name": "move test 2",
+                            "product_id": self.product_id.id,
+                            "product_uom": self.uom_id.id,
+                            "location_id": self.stock_location.id,
+                            "location_dest_id": self.customer_location.id,
+                        },
+                    )
+                ]
+            }
+        )
+        self.assertFalse(
+            picking.analytic_account_id,
+        )
