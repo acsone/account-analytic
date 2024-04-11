@@ -1,0 +1,1 @@
+odoo-addon-hr-department-analytic @ git+https://github.com/OCA/account-analytic.git@refs/pull/642/head#subdirectory=setup/hr_department_analytic
